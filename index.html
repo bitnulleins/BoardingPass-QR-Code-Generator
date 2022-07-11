@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Boarding-Pass Barcode QR Generator</title>
+		<meta name="robots" content="noindex" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<script src="./js/frontend.js"></script>
+		<script src="./js/qr_code.js"></script>
+		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+	</head>
+	<body id="body" onload="start()" >
+		<div class="container">
+			<h1><a href="./">PASS<span>GEN</span></a></h1>
+			<a class="btn" href="#open-modal"><span class="iconify" data-icon="il:cog"></span></a>
+			<a class="btn bookmark" title="Permalink to save in bookmark" id="bookmark" href="#"><span class="iconify" data-icon="bx:bookmark-heart"></span></a>
+
+			<div class="align-middle">
+				<div id="qrcode" class="qrcode">
+					<img id="theimg2" src="./img/loading.gif" />
+					<canvas style="display:none;" id="theimg3"></canvas>
+					<div id="textEdit"></div>
+				</div>
+			</div>
+			
+		</div>
+		<div id="open-modal" class="modal-window">
+			<div class="background"></div>
+			<div class="foreground">
+				<a href="#" title="Close" class="modal-close">Close</a>
+				<h2>Settings</h2>
+				<div id="errMsg"></div>
+				<div id="inputArea">
+					<div class="row">
+						<div class="column">
+							<label for="firstName">First name</label>
+							<input id="firstNameEd" name="firstName" type="text" value="John" oninput="formatName(true)">
+						</div>
+						<div class="column">
+							<label for="firstName">Last name</label>
+							<input id="lastNameEd" name="lastName" type="text" value="Doe" oninput="formatName(true)">
+						</div>
+						<div class="column">
+							<label for="bookingRef">Booking-Ref</label>
+							<input id="bookRefEd" name="bookingRef" type="text" value="XYZ123" oninput="formatField('bookRef', true)">
+						</div>
+						<div class="column">
+							<label for="date">Date</label>
+							<input id="dateEd" for="date" type="date" oninput="readDate(true)">
+						</div>
+						<div class="column">
+							<label for="from">From</label>
+							<input id="fromEd" name="for" type="text" value="HAM" oninput="formatField('from', true)">
+						</div>
+						<div class="column">
+							<label for="to">To</label>
+							<input id="toEd" for="to" type="text" value="" oninput="formatField('to', true)">
+						</div>
+						<div class="column">
+							<label for="flightOps">Flight Operator</label>
+							<input id="fOpEd" name="flightOps" type="text" value="" oninput="formatField('fOp',true)">
+						</div>
+						<div class="column">
+							<label for="number">Flightnumber</label>
+							<input id="fNumEd" name="number" type="text" value="" oninput="formatField('fNum', true)">
+						</div>
+						<div class="column">
+							<label for="seat">Seat</label>
+							<input id="seatNumEd" name="seat" type="text" value="10F" oninput="formatSeat(true)">
+						</div>
+						<div class="column">
+							<label for="class">Class</label>
+							<select id="classSel" name="class" onchange="formatClass(true)">
+								<option value="F">First</option>
+								<option value="C">Business</option>
+								<option value="Y">Economy</option>
+							</select>
+						</div>
+
+
+					</div>
+
+					<h2>QR Code</h2>
+
+					<div class="row">
+						<div class="column">
+							<label for="size">Render size</label>
+							<input id="symSize" name="size" type="number" onchange="update()" value="11">
+						</div>
+						<div class="column">
+							<label for="format">QR Code Format</label>
+							<select name="format" id="codeTypeSel" onchange="typeUpdate()">
+								<option value="0">aztec</option>
+								<option value="1">pdf417</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input id="dayOfYearEd" class="hide" value="0" oninput="formatDay(true)">
+		<input id="seqNumEd" class="hide" value="0001" oninput="formatSeqNum(true)">
+		<select id="eccSelect" class="hide" onchange="update()">
+			<option value="0">-1</option>
+			<option value="0">0</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+	</body>
+</html>
