@@ -4,8 +4,9 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Boarding-Pass Barcode QR Generator</title>
-		<meta name="robots" content="noindex" />
+		<meta name="description" content="Flight Boarding Pass QR Code Generator that can create any Boarding Code for any flight.">
 		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="icon" href="./img/favicon.png">
 		<script src="./js/frontend.js"></script>
 		<script src="./js/qr_code.js"></script>
 		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
@@ -100,6 +101,7 @@
 				</div>
 			</div>
 		</div>
+		<div id="copyright">Frontend by <a href="https://github.com/bitnulleins/BoardingPass-QR-Code-Generator">bitnulleins</a> | Backend by <a href="https://shooshx.github.io/BoardingBarcode/">Shooshx</a></div>
 		<input id="dayOfYearEd" class="hide" value="0" oninput="formatDay(true)">
 		<input id="seqNumEd" class="hide" value="0001" oninput="formatSeqNum(true)">
 		<select id="eccSelect" class="hide" onchange="update()">

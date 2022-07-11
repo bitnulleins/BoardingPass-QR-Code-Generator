@@ -6,7 +6,7 @@ This is a frontend for the Barcode Generator from [Shooshx](https://shooshx.gith
 * A way to save permalink for generated QR Code
 * Settings modal box
 
-You can open the tool [here](#).
+You can open the tool [here](https://bitnulleins.github.io/BoardingPass-QR-Code-Generator/).
 
 ## UI and manual
 

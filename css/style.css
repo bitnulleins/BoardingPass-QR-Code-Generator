@@ -7,6 +7,7 @@ body {
 	background:#fafaf8;
 	color:#1a1a1a;
 }
+
 a {
 	color: inherit;
 	text-decoration: none; 
@@ -168,12 +169,18 @@ input, select {
 	font-size:140%;
 }
 
-.shuffle {
-	right: 70px;	
-}
-
 .bookmark {
 	right: 40px;	
+}
+
+#copyright {
+	position:absolute;
+	bottom: 10px;
+	width:100%;
+	text-align: center;
+	font-size:0.8em;
+	opacity: 0.3;
+	text-transform: uppercase;
 }
 
 @media screen and (max-width: 500px) {
