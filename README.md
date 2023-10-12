@@ -21,9 +21,9 @@ M1DOE/JOHN EXYZ123 HAM 192F010F0001 100
   --- ----  ------
    |    |     |
    |    |     |
-Prename | Booking-Ref      ...
+Surname | Booking-Ref      ...
         |
-    Surname
+    Prename
 ```
 
 This information is then encoded in a QR code so that it can be read by machine by the inspection bodies. There are two standards "aztec" (2D QR code) or PDF417 (1D code known by many airlines). The raw text can now be manipulated to encode other information.
