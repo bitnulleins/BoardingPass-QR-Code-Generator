@@ -199,9 +199,9 @@ function formatSeat(doRun) {
 			}
 function formatSeqNum(doRun) {
 	errclear()
-	var n = seqNumEd.value
+	var n = "0" + getRandomArbitrary(500,999)
 	if (n.length > 4)
-		err("Seat longer than 4 chars")    
+		err("Seq number longer than 4 chars")    
 		fields.seqNum = upPadRight(padLeft(n, 4), 5)
 		if (doRun)
 			format()
@@ -213,4 +213,7 @@ function typeUpdate() {
 		else
 			symSize.value = "6"  // columns in the barcode
 			update()
+}
+function getRandomArbitrary(min, max) {
+	return Math.random() * (max - min) + min;
 }
