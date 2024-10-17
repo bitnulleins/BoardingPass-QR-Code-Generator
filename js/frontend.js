@@ -108,8 +108,8 @@ function update(fromRaw)
 }
 
 function format() {
-	document.getElementById('firstNameEd').value	= fields.name.trim().split('/')[0].toUpperCase()
-	document.getElementById('lastNameEd').value		= fields.name.trim().split('/')[1].toUpperCase()
+	document.getElementById('firstNameEd').value	= fields.name.trim().split('/')[1].toUpperCase()
+	document.getElementById('lastNameEd').value		= fields.name.trim().split('/')[0].toUpperCase()
 	document.getElementById('fOpEd').value			= fields.fOp.toUpperCase()
 	document.getElementById('fNumEd').value			= fields.fNum.toUpperCase()
 	document.getElementById('fromEd').value			= fields.from.toUpperCase()
@@ -237,6 +237,7 @@ function getRandomArbitrary(min, max) {
 }
 
 function loadQRCode(doRun) {
+	errclear()
 	if (doRun.files.length == 0) return;
 	
 	// Scan QR Code
@@ -255,5 +256,8 @@ function loadQRCode(doRun) {
 		document.getElementById("dateEd").value = getDateFromDays(fields.date)
 		if (doRun) format()
 	})
-	.catch(err => console.log(`Error scanning file. Reason: ${err}`));
+	.catch(msg => {
+		err('Error scanning file. Crop only to QR-Code part.')
+		console.log(`Error scanning file. Reason: ${msg}`)
+	});
 }
