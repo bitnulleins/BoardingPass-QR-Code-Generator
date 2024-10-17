@@ -7,17 +7,17 @@
 		<meta name="description" content="Flight Boarding Pass QR Code Generator that can create any Boarding Code for any flight.">
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="icon" href="./img/favicon.png">
-		<script src="./js/frontend.js"></script>
-		<script src="./js/qr_code.js"></script>
-		<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 	</head>
 	<body id="body" onload="start()" >
 		<div class="container">
 			<h1><a href="./">PASS<span>GEN</span></a></h1>
-			<a class="btn" href="#open-modal"><span class="iconify" data-icon="il:cog"></span></a>
-			<a class="btn bookmark" title="Permalink to save in bookmark" id="bookmark" href="#"><span class="iconify" data-icon="bx:bookmark-heart"></span></a>
-
+			<div class="menu">
+				<label class="btn" for="qrCodeInput" title="Upload boarding pass QR-Code"><span class="mdi--qrcode-plus"></span></label>
+				<a class="btn" href="#open-modal"><span class="mdi--edit"></span></a>
+				<a class="btn" title="Permalink to save in bookmark" id="bookmark" href="#"><span class="mdi--bookmark-plus"></span></a>
+			</div>
+			
 			<div class="align-middle">
 				<div id="qrcode" class="qrcode">
 					<img id="theimg2" src="./img/loading.gif" />
@@ -37,15 +37,15 @@
 					<div class="row">
 						<div class="column">
 							<label for="firstName">First name</label>
-							<input id="firstNameEd" name="firstName" type="text" value="John" oninput="formatName(true)">
+							<input id="firstNameEd" name="firstName" type="text" value="" placeholder="John" oninput="formatName(true)">
 						</div>
 						<div class="column">
 							<label for="firstName">Last name</label>
-							<input id="lastNameEd" name="lastName" type="text" value="Doe" oninput="formatName(true)">
+							<input id="lastNameEd" name="lastName" type="text" value="" placeholder="Doe" oninput="formatName(true)">
 						</div>
 						<div class="column">
 							<label for="bookingRef">Booking-Ref</label>
-							<input id="bookRefEd" name="bookingRef" type="text" value="XYZ123" oninput="formatField('bookRef', true)">
+							<input id="bookRefEd" name="bookingRef" type="text" value="" placeholder="XYZ123" oninput="formatField('bookRef', true)">
 						</div>
 						<div class="column">
 							<label for="date">Date</label>
@@ -53,7 +53,7 @@
 						</div>
 						<div class="column">
 							<label for="from">From</label>
-							<input id="fromEd" name="for" type="text" value="HAM" oninput="formatField('from', true)">
+							<input id="fromEd" name="for" type="text" value="" placeholder="HAM" oninput="formatField('from', true)">
 						</div>
 						<div class="column">
 							<label for="to">To</label>
@@ -69,15 +69,19 @@
 						</div>
 						<div class="column">
 							<label for="seat">Seat</label>
-							<input id="seatNumEd" name="seat" type="text" value="10F" oninput="formatSeat(true)">
+							<input id="seatNumEd" name="seat" type="text" value="" placeholder="10F" oninput="formatSeat(true)">
 						</div>
 						<div class="column">
 							<label for="class">Class</label>
 							<select id="classSel" name="class" onchange="formatClass(true)">
-								<option value="F">First</option>
-								<option value="C">Business</option>
 								<option value="Y">Economy</option>
+								<option value="C">Business</option>
+								<option value="F">First</option>
 							</select>
+						</div>
+						<div class="column">
+							<label for="seqNum">Sequence Number</label>
+							<input name="seqNum" id="seqNumEd" value="0000" onchange="formatField('seqNum', true)">
 						</div>
 
 
@@ -103,7 +107,6 @@
 		</div>
 		<div id="copyright">Frontend by <a href="https://github.com/bitnulleins/BoardingPass-QR-Code-Generator">bitnulleins</a> | Backend by <a href="https://shooshx.github.io/BoardingBarcode/">Shooshx</a></div>
 		<input id="dayOfYearEd" class="hide" value="0" oninput="formatDay(true)">
-		<input id="seqNumEd" class="hide" value="0001" oninput="formatSeqNum(true)">
 		<select id="eccSelect" class="hide" onchange="update()">
 			<option value="0">-1</option>
 			<option value="0">0</option>
@@ -111,5 +114,11 @@
 			<option value="2">2</option>
 			<option value="3">3</option>
 		</select>
+		<div id="reader" width="600px" height="600px" class="hide"></div>
+		<input type="file" id="qrCodeInput" accept="image/*" onchange="loadQRCode(this)" capture>
+
+		<script src="./js/qrcode-generator.min.js"></script>
+		<script src="./js/html5-qrcode.min.js"></script>
+		<script src="./js/frontend.js"></script>
 	</body>
 </html>
