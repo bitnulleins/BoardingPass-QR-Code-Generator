@@ -31,7 +31,7 @@ function start()
 	formatField('fOp')
 	formatField('fNum')
 	formatField('seqNum')
-	readDate()
+	formatDay()
 	formatClass()
 	formatSeat()
 
@@ -171,6 +171,11 @@ function formatName(doRun) {
 }
 
 function formatDay(doRun) {
+	var dl = dateEd.value.split('-')
+	var mday = parseInt(dl[2])
+	var mon = parseInt(dl[1]) - 1  // the range of the input is [1-12]
+	var yr = parseInt(dl[0])
+	dayOfYearEd.value = dayOfYear(yr, mon, mday)
 	fields.date = dayOfYearEd.value
 	if (doRun) format()
 }
@@ -185,19 +190,11 @@ function dayOfYear(yr, mon, mday)
 	return day
 }
 
-function readDate(toRun) {
-	var dl = dateEd.value.split('-')
-	var mday = parseInt(dl[2])
-	var mon = parseInt(dl[1]) - 1  // the range of the input is [1-12]
-	var yr = parseInt(dl[0])
-
-	dayOfYearEd.value = dayOfYear(yr, mon, mday)
-	formatDay(toRun)
-}
-
 function getDateFromDays(days) {
-	var acutalYear = new Date().getFullYear()
-	return new Date(new Date(acutalYear, 0).setDate(days)).toJSON().slice(0,10)
+	var actualYear = new Date().getFullYear()
+	console.log(new Date(actualYear, 0, days))
+	console.log(new Date(actualYear, 0, days).toLocaleString('sv').substring(0, 10))
+	return new Date(actualYear, 0, days).toLocaleString('sv').substring(0, 10)
 }
 
 function formatClass(doRun) {

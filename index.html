@@ -49,7 +49,7 @@
 						</div>
 						<div class="column">
 							<label for="date">Date</label>
-							<input id="dateEd" for="date" type="date" oninput="readDate(true)">
+							<input id="dateEd" for="date" type="date" oninput="formatDay(true)">
 						</div>
 						<div class="column">
 							<label for="from">From</label>
@@ -106,7 +106,7 @@
 			</div>
 		</div>
 		<div id="copyright">Frontend by <a href="https://github.com/bitnulleins/BoardingPass-QR-Code-Generator">bitnulleins</a> | Backend by <a href="https://shooshx.github.io/BoardingBarcode/">Shooshx</a></div>
-		<input id="dayOfYearEd" class="hide" value="0" oninput="formatDay(true)">
+		<input id="dayOfYearEd" class="hide" value="0">
 		<select id="eccSelect" class="hide" onchange="update()">
 			<option value="0">-1</option>
 			<option value="0">0</option>
