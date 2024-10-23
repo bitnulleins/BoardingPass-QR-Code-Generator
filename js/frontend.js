@@ -132,7 +132,7 @@ function format() {
 		+ fields.cls
 		+ padLeft(fields.seat, 4)
 		+ padLeft(fields.seqNum, 4)
-		+ " " + "00" // 00 - hex length of following data
+		+ " " + "100" // 00 - hex length of following data
 	update()
 }
 function upPadRight(s, n) {
