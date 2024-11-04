@@ -1,9 +1,12 @@
 # BoardingPass QR-Code Generator
 
-This is a frontend for the Barcode Generator from [Shooshx](https://shooshx.github.io/BoardingBarcode/). Its has the following additional features:
+<img src="https://img.shields.io/github/deployments/bitnulleins/BoardingPass-QR-Code-Generator/github-pages?label=deployment"> <img src="https://img.shields.io/github/v/tag/bitnulleins/BoardingPass-QR-Code-Generator?label=version"> <img src="https://img.shields.io/github/stars/bitnulleins/BoardingPass-QR-Code-Generator">
+
+This is a frontend for the Barcode Generator from [Shooshx](https://github.com/shooshx/BoardingBarcode). Its has the following additional features:
 
 * Responsive lightweight UI
 * A way to save permalink for generated QR Code
+* Upload existing QR Code (cropped)
 * Settings modal box
 
 You can open the tool [here](https://bitnulleins.github.io/BoardingPass-QR-Code-Generator/).
@@ -28,7 +31,8 @@ Surname | Booking-Ref      ...
 
 This information is then encoded in a QR code so that it can be read by machine by the inspection bodies. There are two standards "aztec" (2D QR code) or PDF417 (1D code known by many airlines). The raw text can now be manipulated to encode other information.
 
-That's why it's so important to never show your board card on social media. There is a lot of personal information on it.
+> [!IMPORTANT]
+> That's why it's so important to never show your board card on social media. There is a lot of personal information on it.
 
 ## Other useful info
 

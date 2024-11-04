@@ -9,6 +9,12 @@ var fields = {}
 var run, getDayOfYear
 var ctx = null
 
+fetch('https://api.github.com/repos/bitnulleins/BoardingPass-QR-Code-Generator/releases/latest')
+.then(response => response.json())
+.then(data => {
+	document.getElementById('copyright').innerHTML += " | " + data.tag_name
+})
+
 var fldDef = {
 	'bookRef': { pad: 7, desc:"Booking Ref"},
 	'from':    { pad: 3, desc:"From"},
@@ -44,24 +50,11 @@ function start()
 
 	// Update
 	format()
-	update_bookmark()
+	update()
 }
 
-function update_bookmark() {
-	let queries = []
-	queries['name']				= fields.name
-	queries['fOp']				= fields.fOp
-	queries['fNum']				= fields.fNum
-	queries['from']				= fields.from
-	queries['to']				= fields.to
-	queries['date']				= fields.date
-	queries['seat']				= fields.seat
-	queries['bookRef']			= fields.bookRef
-	queries['seqNum']			= fields.seqNum
-	queries['cls']				= fields.cls
-
+function update_bookmark(queries) {
 	let query = Object.entries(queries).map(([k,v]) => `${k}=${v}`)
-	
 	document.getElementById('bookmark').href='?' + query.join('&')
 }
 
@@ -78,7 +71,25 @@ function err(msg) {
 
 function update(fromRaw)
 {
-	update_bookmark()
+	let queries = []
+	queries['name']				= fields.name
+	queries['fOp']				= fields.fOp
+	queries['fNum']				= fields.fNum
+	queries['from']				= fields.from
+	queries['to']				= fields.to
+	queries['date']				= fields.date
+	queries['seat']				= fields.seat
+	queries['bookRef']			= fields.bookRef
+	queries['seqNum']			= fields.seqNum
+	queries['cls']				= fields.cls
+
+	if (Object.values(queries).includes('')) {
+		document.querySelector('.qrcode').style.border = '4px solid red'
+	} else {
+		document.querySelector('.qrcode').style.border = '4px solid green'
+	}
+
+	update_bookmark(queries)
 	
 	if (!fromRaw)
 		textEdit.innerHTML = textIn

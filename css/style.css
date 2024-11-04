@@ -19,7 +19,6 @@ h1 {
 	margin:0;
 }
 
-
 h2 {
 	margin-top:0px;
 	text-transform:uppercase;
@@ -170,8 +169,8 @@ input, select {
 	width:100%;
 	text-align: center;
 	font-size:0.8em;
+	z-index:1000;
 	opacity: 0.3;
-	text-transform: uppercase;
 }
 
 @media screen and (max-width: 500px) {
