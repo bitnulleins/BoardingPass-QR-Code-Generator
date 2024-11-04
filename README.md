@@ -1,6 +1,6 @@
 # BoardingPass QR-Code Generator
 
-<img src="https://img.shields.io/github/deployments/bitnulleins/BoardingPass-QR-Code-Generator/github-pages?label=deployment"> <img src="https://img.shields.io/github/v/tag/bitnulleins/BoardingPass-QR-Code-Generator?label=version"> <img src="https://img.shields.io/github/stars/bitnulleins/BoardingPass-QR-Code-Generator">
+<img src="https://img.shields.io/github/deployments/bitnulleins/BoardingPass-QR-Code-Generator/github-pages?label=deployment"> <img src="https://img.shields.io/github/v/release/bitnulleins/BoardingPass-QR-Code-Generator?label=version"> <img src="https://img.shields.io/github/stars/bitnulleins/BoardingPass-QR-Code-Generator">
 
 This is a frontend for the Barcode Generator from [Shooshx](https://github.com/shooshx/BoardingBarcode). Its has the following additional features:
 
