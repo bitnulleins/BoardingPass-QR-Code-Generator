@@ -79,9 +79,23 @@
 								<option value="F">First</option>
 							</select>
 						</div>
-						<div class="column">
+						<div class="column hide">
 							<label for="seqNum">Sequence Number</label>
 							<input name="seqNum" id="seqNumEd" value="0000" onchange="formatField('seqNum', true)">
+						</div>
+						<div class="column hide">
+							<label for="dayOfYearEd">Day of year</label>
+							<input id="dayOfYearEd" value="0" disabled>
+						</div>
+						<div class="column hide">
+							<label for="eccSelect">Error correction</label>
+							<select id="eccSelect" onchange="update()" disabled>
+								<option value="0">-1</option>
+								<option value="0">0</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
 						</div>
 
 
@@ -105,15 +119,8 @@
 				</div>
 			</div>
 		</div>
-		<div id="copyright">USE AT OWN RISK</div>
-		<input id="dayOfYearEd" class="hide" value="0">
-		<select id="eccSelect" class="hide" onchange="update()">
-			<option value="0">-1</option>
-			<option value="0">0</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-		</select>
+		<div id="copyright">Use at own risk | <a target="_blank" href="https://github.com/bitnulleins/BoardingPass-QR-Code-Generator" title="Source code on GitHub">GitHub</a></div>
+		
 		<div id="reader" width="600px" height="600px" class="hide"></div>
 		<input type="file" id="qrCodeInput" accept="image/*" onchange="loadQRCode(this)">
 

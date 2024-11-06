@@ -9,12 +9,6 @@ var fields = {}
 var run, getDayOfYear
 var ctx = null
 
-fetch('https://api.github.com/repos/bitnulleins/BoardingPass-QR-Code-Generator/releases/latest')
-.then(response => response.json())
-.then(data => {
-	document.getElementById('copyright').innerHTML += " | " + data.tag_name
-})
-
 var fldDef = {
 	'bookRef': { pad: 7, desc:"Booking Ref"},
 	'from':    { pad: 3, desc:"From"},
@@ -84,9 +78,9 @@ function update(fromRaw)
 	queries['cls']				= fields.cls
 
 	if (Object.values(queries).includes('')) {
-		document.querySelector('.qrcode').style.border = '4px solid red'
+		document.querySelector('.qrcode').style.opacity = '0.3'
 	} else {
-		document.querySelector('.qrcode').style.border = '4px solid green'
+		document.querySelector('.qrcode').style.opacity = '1'
 	}
 
 	update_bookmark(queries)
@@ -222,7 +216,7 @@ function formatSeat(doRun) {
 }
 function formatSeqNum(doRun) {
 	errclear()
-	var n = "0" + getRandomArbitrary(500,999)
+	var n = "0" + getRandomArbitrary(300,500)
 	if (n.length > 4)
 		err("Seq number longer than 4 chars")    
 		if (seqNumEd.value == '0000') {

@@ -1,11 +1,20 @@
+:root {
+	--primary-color: #0c65aa;
+	--secondary-color: #e0001b;
+	--gray-color: #aaaaaa;
+	--bg-color: #e9e9e9;
+	--box-color: rgba(255,255,255,0.9);
+	--font-color: #1a1a1a;
+}
+
 html, body {
 	height: 100%;
 	margin:0;
 }
 body {
 	font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	background:#fafaf8;
-	color:#1a1a1a;
+	background: var(--bg-color);
+	color:var(--font-color);
 }
 
 a {
@@ -14,7 +23,7 @@ a {
 }
 
 h1 {
-	color: #e0001b;
+	color: var(--secondary-color);
 	font-weight:400;
 	margin:0;
 }
@@ -23,11 +32,11 @@ h2 {
 	margin-top:0px;
 	text-transform:uppercase;
 	font-size:1.1em;
-	color: #0c65aa;
+	color: var(--primary-color);
 }
 
 h1 span {
-	color: #0c65aa;
+	color: var(--primary-color);
 	font-style:italic;
 }
 
@@ -52,7 +61,7 @@ h1 span {
 
 .modal-window label {
 	text-transform:uppercase;
-	color:#C0C0C0;
+	color:var(--gray-color);
 	font-size:90%;
 	white-space: nowrap;
 }
@@ -65,23 +74,27 @@ input, select {
 	font-size:120%;
 	margin-bottom:10px;
 	font-family: monospace;
-	background:#f0f0f0;
+	background:var(--bg-color);
 	border:0;
-	border-bottom:2px solid #C0C0C0;
+	border-bottom:2px solid var(--gray-color);
 	border-radius:0;
+}
+
+input {
+	max-height:15px;
 }
 
 #errMsg {
 	text-align: center;
 	bottom: 8px;
-	color: red;
-	background-color: #ffeeee;
+	color: var(--secondary-color);
 	text-align: center;
 	width: 100%;
+	border-radius:5px;
+	box-sizing: border-box;
 	max-width: 500px;
 	padding: 4px;
-	margin-bottom:20px;
-	border: red solid 1px;
+	border: var(--secondary-color) solid 2px;
 	visibility: hidden;
 }
 
@@ -93,10 +106,11 @@ input, select {
 .qrcode {
 	padding:10px;
 	letter-spacing: 1px;
-	background:#fff;
-	border-radius:10px;
+	background:var(--box-color);
+	opacity: 0.4;
+	border-radius:8px;
 	font-family: monospace;
-	color:rgba(0,0,0,0.5);
+	color:var(--gray-color);
 	text-align:center;
 	max-width:500px;
 	width:100%;
@@ -105,7 +119,7 @@ input, select {
 
 .modal-window {
 	position: fixed;
-	background-color: rgba(255, 255, 255, 0.25);
+	background-color: var(--box-color);
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -135,7 +149,7 @@ input, select {
 	box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 .modal-close {
-	color: #aaa;
+	color: var(--gray-color);
 	font-size: 80%;
 	position: absolute;
 	right: 10px;
@@ -146,7 +160,7 @@ input, select {
 	text-decoration: none;
 }
 .modal-close:hover {
-	color: black;
+	color: var(--font-color);
 }
 .align-middle {
 	display: grid;
@@ -169,6 +183,7 @@ input, select {
 	width:100%;
 	text-align: center;
 	font-size:0.8em;
+	text-transform: uppercase;
 	z-index:1000;
 	opacity: 0.3;
 }
