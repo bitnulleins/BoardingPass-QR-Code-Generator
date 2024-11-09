@@ -54,12 +54,12 @@ function update_bookmark(queries) {
 
 function errclear() {
 	errMsg.innerHTML = ''
-	errMsg.style.visibility = 'hidden'
+	errMsg.style.display = 'hidden'
 }
 function err(msg) {
 	if (errMsg.innerHTML == '') {
 		errMsg.innerHTML = msg
-		errMsg.style.visibility = 'visible'
+		errMsg.style.display = 'block'
 	}
 }
 
