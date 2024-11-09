@@ -132,6 +132,7 @@ input, select {
 	-webkit-appearance: none;
 	-webkit-border-radius: none;
 	padding:5px;
+	height:27px;
 	font-size:120%;
 	margin-bottom:10px;
 	font-family: monospace;
